@@ -31,11 +31,10 @@ HALF_PAD_WIDTH = PAD_WIDTH / 2
 HALF_PAD_HEIGHT = PAD_HEIGHT / 2
 LEFT = False
 RIGHT = True
-LK_UP = 119
-LK_DOWN = 115
-RK_UP = 273
-RK_DOWN = 274
-
+LK_UP = 119    # w
+LK_DOWN = 115  # s
+RK_UP = "273"    # 
+RK_DOWN = 274  # 
 
 # initializations
 pygame.init()
@@ -95,6 +94,8 @@ white_color = pygame.Color(255, 255, 255)
 def spawn_ball(direction):
     ''' spawns the ball in the middle of the table and assigns the ball a velocity '''
     global ball_pos, ball_vel # these are vectors stored as lists
+
+    pygame.time.delay(100)
     
     # initialize ball_pos and ball_vel for new ball in middle of table
     ball_pos = [WIDTH / 2, HEIGHT / 2]
@@ -185,7 +186,7 @@ def draw_handler(canvas):
         else :
             # player one scores
             score1 += 1
-            spawn_ball(LEFT)   
+            spawn_ball(LEFT)
 
     # render text
     label1 = fontObj3.render(str(score1), 1, (255,255,0))
@@ -225,13 +226,13 @@ def keydown(key):
     ''' handler for keydown events '''
     global paddle1_vel, paddle2_vel
     velocity = 7    
-    if key == LK_UP:
+    if key == K_w:
         paddle1_vel = -velocity
-    elif key == LK_DOWN:
+    elif key == K_s:
         paddle1_vel = velocity
-    elif key == RK_UP:
+    elif key == K_p:
         paddle2_vel = -velocity
-    elif key == RK_DOWN:
+    elif key == K_l:
         paddle2_vel = velocity
    
 
@@ -240,13 +241,13 @@ def keydown(key):
 def keyup(key):
     ''' handler for keyup events '''
     global paddle1_vel, paddle2_vel
-    if key == LK_UP:
+    if key == K_w:
         paddle1_vel = 0
-    elif key == LK_DOWN:
+    elif key == K_s:
         paddle1_vel = 0
-    elif key == RK_UP:
+    elif key == K_p:
         paddle2_vel = 0
-    elif key == RK_DOWN:
+    elif key == K_l:
         paddle2_vel = 0
  
 
