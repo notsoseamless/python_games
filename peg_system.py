@@ -32,6 +32,7 @@ max_peg_words = len(peg_words_list)
 
 
 def main():
+    ''' main function '''
     start_num = 1
     test_size = 0
     peg_dict  = {}
@@ -85,7 +86,7 @@ def ask_for_test_size(start_num):
     ''' request user to input test size '''
     print('How many peg words to test?')
     print('any number between 1 and %d' %(max_peg_words - start_num))
-    return check_size(start_num, int(raw_input('Input:')))
+    return check_size(start_num, int(raw_input('Input: ')))
 
 
 
